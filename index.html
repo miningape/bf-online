@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    
+    <script src="https://use.fontawesome.com/59b4034b82.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .html,body{
+            height: 100vh;
+        }
+        #editor{
+            overflow-y: scroll;
+            min-height: 65vh;
+        }
+        .box {
+            border: 1px solid blue;
+        }
+        .container {
+            height: 100vh;
+        }
+        .navbar {
+            height: 7vh;
+        }
+        .top {
+            height: 65vh;
+        }
+        .bottom {
+            height: 28vh;
+        }
+        .runbtn {
+            max-height: 25%;
+        }
+        .terminalH .terminal {
+            height: 75%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container-fluid"></div>
+        <div class="row no-gutters"><div class="col">
+            <nav class="navbar navbar-expand navbar-dark bg-dark no-gutters">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Nav 1 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nav 2</a>
+                    </li>
+                </ul>
+                
+                <ul class="nav navbar-nav ml-auto">
+                    <a class="nav-item" href="#"><i class="fa fa-upload" aria-hidden="true"></i> Upload </a>
+                    <span></span>
+                    <a class="nav-item" href="#"> <i class="fa fa-download" aria-hidden="true"></i> Download</a>
+                </ul>                
+            </nav>
+        </div></div>
+
+        <div class="row no-gutters top">
+            <div class="col-3"> Files </div>
+            <div class="col-9"> <div class="form-group">
+                <textarea class="form-control" id="editor"></textarea>
+            </div> </div>
+        </div>
+
+        <div class="row no-gutters bottom">
+            <div class="col-3"> 
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" onclick="preLoad()">Load</button>
+                    </div>
+                    <select class="custom-select" id="preload">
+                      <option selected value="0">Blank</option>
+                      <option value="1">Hello, World!</option>
+                      <option value="2">Code Explained</option>
+                      <option value="3">Interpreter</option>
+                    </select>
+                    
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Cells</span>
+                    </div>
+                    <input type="text" class="form-control" id="numCells" placeholder="30000" aria-label="Cells" aria-describedby="basic-addon1">
+                </div>
+                  
+
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="editorOverflow">Overflow</label>
+                    </div>
+                    <select class="custom-select" id="editorOverflow">
+                      <option selected value="0">None</option>
+                      <option value="1">No negatives</option>
+                      <option value="2">No negatives, 255</option>
+                      <option value="3">-255 to 255</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-9 terminalH"> 
+                <textarea class="form-control terminal" type="text" placeholder="Output" readonly></textarea>
+                <div class="input-group runbtn">
+                    <input type="text" class="form-control" id="input" placeholder="Input" aria-label="Input" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="readText()">Run</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- JQuery and other bootstrap stuff -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="brainfuck.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
