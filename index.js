@@ -14,7 +14,7 @@ function readText() {
 
     output = output.join("");
     cmd++;
-    terminal.value += cmd.toString() + ": " + output;
+    terminal.value += cmd.toString() + ": " + output + '\n';
 }
 
 function preLoad() {
@@ -30,8 +30,10 @@ function preLoad() {
             break;
         case "2":
             code.value = HEXPL;
+            break;
         case "3":
             code.value = INTER;
+            break;
         default: throw("Unknown Command")
     }
 }

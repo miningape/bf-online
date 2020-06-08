@@ -56,6 +56,7 @@ class BFInterpreter {
                     break;
                 case '^': // Breakpoint: Outputs environment
                     this.printfn.call(this, this.environment);
+                    this.printfn.call(this, '\n');
                     break;
                 // There is somehow an unrecognized symbol
                 default: throw ("Unrecognized Symbol");
