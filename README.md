@@ -19,5 +19,6 @@ Input is a string that is read character by character after pressing run.
 - [ ] Make readme more full and include bf interpreter readme
 - [ ] Change the run button to an icon
 - [ ] Make memory options work
+- [ ] Host
 - [ ] Add Dark Mode
 - [ ] Add More Example code as well as explaination
