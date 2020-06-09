@@ -1,4 +1,4 @@
-let cmd = 0;
+let cmd = 0;    // Counter for terminal
 
 function readText() {
     let code = $('#editor')[0].value;
@@ -36,6 +36,37 @@ function preLoad() {
             break;
         default: throw("Unknown Command")
     }
+}
+
+function addFile() {
+    let name = ($('#filenamer')[0].value)
+    $('.filemanage').append(('<button onclick="switchFiles(this)" type="button" name="' + fileData.length + '" class="list-group-item list-group-item-action filebtn btn">' + name + '</button>'))
+    fileData.push(BLANK);
+}
+
+function removeFile(file){
+    
+}
+
+let fileData = [""];
+function saveFile() {
+    let cur_file = $('.filebtn.active')[0]
+    let code = $('#editor')[0];
+    fileData[parseInt(cur_file.name)] = code.value;
+}
+
+function switchFiles(obj) {
+    let code = $('#editor')[0];
+    saveFile(obj);
+    code.value = fileData[parseInt(obj.name)];
+
+    (function AllInactive() {
+        [$('.filebtn')].forEach(btn => $(btn).removeClass('active'));
+    })();   
+
+    $(obj).addClass('active');
+
+    console.log(fileData)
 }
 
 const HELLO = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";

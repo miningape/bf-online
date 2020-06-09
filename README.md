@@ -12,13 +12,14 @@ Input is a string that is read character by character after pressing run.
 # ToDo:
 - [x] Add Memory Size Selector
 - [x] Add a few example programs
-- [ ] Add file selector
-- [ ] Add new file button
+- [x] Add file selector
+- [x] Add new file button
+- [ ] Add delete file button
 - [ ] Add Upload/Download Files
 - [ ] Change the nav bar to include portfolio, as well as logo
 - [ ] Make readme more full and include bf interpreter readme
 - [ ] Change the run button to an icon
-- [ ] Make memory options work
+- [ ] Make memory overflow options work
 - [ ] Host
 - [ ] Add Dark Mode
 - [ ] Add More Example code as well as explaination

@@ -23,13 +23,13 @@
             height: 100vh;
         }
         .navbar {
-            height: 7vh;
+            height: 10vh;
         }
         .top {
             height: 65vh;
         }
         .bottom {
-            height: 28vh;
+            height: 25vh;
         }
         .runbtn {
             max-height: 25%;
@@ -37,13 +37,24 @@
         .terminalH .terminal {
             height: 75%;
         }
-        
+        .filemanage {
+            overflow-y: scroll;
+        }
+        .btn {
+            border-radius: 0;
+        }
+        .navbar-nav > li{
+            padding-left:10px;
+            padding-right:10px;
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid"></div>
+        <!-- Nav Bar -->
         <div class="row no-gutters"><div class="col">
             <nav class="navbar navbar-expand navbar-dark bg-dark no-gutters">
+                <!-- Right Hand Side -->
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Nav 1 <span class="sr-only">(current)</span></a>
@@ -53,22 +64,44 @@
                     </li>
                 </ul>
                 
+                <!-- Left Hand Side -->
                 <ul class="nav navbar-nav ml-auto">
-                    <a class="nav-item" href="#"><i class="fa fa-upload" aria-hidden="true"></i> Upload </a>
-                    <span></span>
-                    <a class="nav-item" href="#"> <i class="fa fa-download" aria-hidden="true"></i> Download</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle lhs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <input class="form-control dropdown-item" id="filenamer" type="search" placeholder="Filename">
+                            <div class="dropdown-divider"></div>
+                            <button class="btn btn-outline-success dropdown-item" type="submit" onclick="addFile()">Add</button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link lhs" href="#"><i class="fa fa-upload" aria-hidden="true"></i> Upload </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link lhs" href="#"> <i class="fa fa-download" aria-hidden="true"></i> Download</a>
+                    </li>
                 </ul>                
             </nav>
         </div></div>
 
+        <!-- File Selector and Editor -->
         <div class="row no-gutters top">
-            <div class="col-3"> Files </div>
+            <!-- File Selector -->
+            <div class="col-3"> 
+                <div class="list-group filemanage top">
+                    <button onclick="switchFiles(this)" name="0" type="button" class="list-group-item list-group-item-action filebtn btn active">Main</button>
+                </div>    
+            </div>
+
+            <!-- Editor -->
             <div class="col-9"> <div class="form-group">
                 <textarea class="form-control" id="editor"></textarea>
             </div> </div>
         </div>
 
+        <!-- IO and control -->
         <div class="row no-gutters bottom">
+            <!-- Environment Options -->
             <div class="col-3"> 
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -85,7 +118,7 @@
 
                 <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">Cells</span>
+                      <span class="input-group-text btn" id="basic-addon1">Cells</span>
                     </div>
                     <input type="text" class="form-control" id="numCells" placeholder="30000" aria-label="Cells" aria-describedby="basic-addon1">
                 </div>
@@ -93,7 +126,7 @@
 
                 <div class="input-group ">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="editorOverflow">Overflow</label>
+                      <label class="input-group-text btn" for="editorOverflow">Overflow</label>
                     </div>
                     <select class="custom-select" id="editorOverflow">
                       <option selected value="0">None</option>
@@ -103,6 +136,8 @@
                     </select>
                 </div>
             </div>
+
+            <!-- Terminal Code -->
             <div class="col-9 terminalH"> 
                 <textarea class="form-control terminal" type="text" placeholder="Output" readonly></textarea>
                 <div class="input-group runbtn">
